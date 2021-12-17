@@ -36,36 +36,30 @@
       ```
       ```
          <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-         </dependency>
-
-         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-netflix-eureka-server</artifactId>
-            <version>1.1.6.RELEASE</version>
-         </dependency>
+               <groupId>org.springframework.cloud</groupId>
+               <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+		   </dependency>
 
          <dependencyManagement>
-               <dependencies>
-                  <dependency>
-                     <groupId>org.springframework.cloud</groupId>
-                     <artifactId>spring-cloud-dependencies</artifactId>
-                     <version>${spring-cloud.version}</version>
-                     <type>pom</type>
-                     <scope>import</scope>
-                  </dependency>
-               </dependencies>
-         </dependencyManagement>
+		      <dependencies>
+			      <dependency>
+				      <groupId>org.springframework.cloud</groupId>
+				      <artifactId>spring-cloud-dependencies</artifactId>
+				      <version>${spring-cloud.version}</version>
+				      <type>pom</type>
+				      <scope>import</scope>
+			      </dependency>
+		      </dependencies>
+	      </dependencyManagement>
 
          <build>
-            <plugins>
-               <plugin>
-                  <groupId>org.springframework.boot</groupId>
-                  <artifactId>spring-boot-maven-plugin</artifactId>
-               </plugin>
-            </plugins>
-         </build>
+		      <plugins>
+			      <plugin>
+				      <groupId>org.springframework.boot</groupId>
+				      <artifactId>spring-boot-maven-plugin</artifactId>
+			      </plugin>
+		      </plugins>
+	      </build>
      ```
       * Add below configuration code in both USER & DEPARTMENT's application.yml file
      ```
@@ -83,3 +77,5 @@
              hostname: localhost
      ```
       * LoadBalance annotation
+         * it is added in "RestTemplate" method of USER-SERVICE - "UserServiceApplication.java" file
+         * it is used when multiple services are available, which connected to e.g. SERVICE-REGISTRY, it will load balance the respective requests 
