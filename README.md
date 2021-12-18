@@ -131,4 +131,5 @@
 			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
 		</dependency>
 	```
+	### N.B: Hystrix Library is not used anymore. Instead of this, "Resilience4J" is used 
 	
